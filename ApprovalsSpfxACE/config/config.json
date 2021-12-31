@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "approvals-ace-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/approvalsAce/ApprovalsAceAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/approvalsAce/ApprovalsAceAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ApprovalsAceAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/approvalsAce/loc/{locale}.js"
+  }
+}
