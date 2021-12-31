@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "75977392-b1b9-4a08-bcb6-c88c104a478b",
+		"name": "React CRUD app express api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add a feedback",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"19\",\r\n    \"status\":\"Pending Approval\",\r\n    \"name\":\"Test Feedback 19\",\r\n    \"title\":\"Title Test Feedback 19\",\r\n    \"message\":\"Message Test Feedback 19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register feedbackadded webhook",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"targetUrl\":\"https://prod-81.westeurope.logic.azure.com/workflows/285788dff3034e7e8c7da5899647311d/triggers/When_Feedback_is_posted/versions/08585609178625870569/run?api-version=2016-06-01&sp=%2Ftriggers%2FWhen_Feedback_is_posted%2Fversions%2F08585609178625870569%2Frun%2C%2Ftriggers%2FWhen_Feedback_is_posted%2Fversions%2F08585609178625870569%2Fread&sv=1.0&sig=eUsjbXG6zZN35tlqG6s7tTLFZSc7cDNmHLf9_JUqPYU\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/hooks/feedbackaddedhook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hooks",
+						"feedbackaddedhook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Feedbacks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Test Feedback 2\",\r\n    \"title\":\"Title Test Feedback 2\",\r\n    \"message\":\"Message Test Feedback 2\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a feedback",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete feedbackadded webhook",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/hooks/deletefeedbackaddedhook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hooks",
+						"deletefeedbackaddedhook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve a feedback",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/approve/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"approve",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject a feedback",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/reject/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reject",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
