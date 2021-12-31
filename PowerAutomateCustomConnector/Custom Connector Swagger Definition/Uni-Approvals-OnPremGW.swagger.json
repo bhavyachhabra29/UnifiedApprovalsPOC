@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Default title",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "10.149.89.36:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/hooks/feedbackaddedhook": {
+      "x-ms-notification-content": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "id"
+            },
+            "status": {
+              "type": "string",
+              "description": "status"
+            },
+            "name": {
+              "type": "string",
+              "description": "name"
+            },
+            "title": {
+              "type": "string",
+              "description": "title"
+            },
+            "message": {
+              "type": "string",
+              "description": "message"
+            }
+          }
+        },
+        "description": "Feedback"
+      },
+      "post": {
+        "responses": {},
+        "summary": "When Feedback is posted",
+        "description": "When Feedback is posted",
+        "operationId": "FeedbackPosted",
+        "x-ms-visibility": "important",
+        "x-ms-trigger": "single",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetUrl": {
+                  "type": "string",
+                  "description": "targetUrl",
+                  "x-ms-notification-url": true,
+                  "x-ms-visibility": "internal",
+                  "title": ""
+                }
+              },
+              "required": [
+                "targetUrl"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/approve/{id}": {
+      "put": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Approve Feedback",
+        "description": "Approve Feedback",
+        "operationId": "ApproveFeedback",
+        "x-ms-visibility": "important",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-visibility": "important"
+          }
+        ]
+      }
+    },
+    "/reject/{id}": {
+      "put": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Reject Feedback",
+        "description": "Reject Feedback",
+        "operationId": "RejectFeedback",
+        "x-ms-visibility": "important",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-visibility": "important"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
