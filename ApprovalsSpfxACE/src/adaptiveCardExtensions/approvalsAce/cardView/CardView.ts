@@ -10,7 +10,7 @@ import { IApprovalsAceAdaptiveCardExtensionProps, IApprovalsAceAdaptiveCardExten
 
 export class CardView extends BasePrimaryTextCardView<IApprovalsAceAdaptiveCardExtensionProps, IApprovalsAceAdaptiveCardExtensionState> {
   public get cardButtons(): [ICardButton] | [ICardButton, ICardButton] | undefined {
-    //if(this.state.approvalCount !== 0){
+    if(this.state.approvalCount !== 0){
     return [
       {
         title: strings.QuickViewButton,
@@ -22,22 +22,21 @@ export class CardView extends BasePrimaryTextCardView<IApprovalsAceAdaptiveCardE
         }
       }
     ];
-  /*}
+  }
   else
   {
     return null;
-  }*/
+  }
   }
 
   public get data(): IPrimaryTextCardParameters {
     let cardText: string = "";
     if(this.state.approvals.length === 0){
-      cardText = "No Pending Approvals";
+      cardText = "No Approvals";
     } else {
-      cardText = this.state.approvals.length.toString() + " Pending Approval(s)";
+      cardText = this.state.approvals.length.toString() + " Approval(s)";
     }
 
-    //cardText = " Pending Approval(s)";
     return {
       primaryText: cardText,
       description: ""
