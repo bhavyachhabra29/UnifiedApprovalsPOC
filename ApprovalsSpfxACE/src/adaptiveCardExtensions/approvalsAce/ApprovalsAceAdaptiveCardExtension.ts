@@ -43,12 +43,6 @@ export default class ApprovalsAceAdaptiveCardExtension extends BaseAdaptiveCardE
       console.log(approvals);
       console.log("length:"+this.approvals.length);
 
-      /*this.state = {
-        description: this.properties.description,
-        approvalCount: this.approvals.length,
-        approvals: this.approvals
-      };*/
-      
       this.setState({        
         approvalCount: this.approvals.length,
         approvals: this.approvals
